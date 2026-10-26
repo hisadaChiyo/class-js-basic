@@ -41,6 +41,7 @@ let count = 0;
 btn.addEventListener('click', () => {
     count++; // 値を1増やす
     countDisplay.textContent = count;
+
     if (count >= 30) {
         message.textContent = '30回達成！ゲームクリアです！';
         message.style.color = '#e74c3c';
@@ -62,4 +63,22 @@ btn.addEventListener('click', () => {
     }
 });
 
-const pageTop = document.getElementById(`page-top`);
+
+const pageTop = document.getElementById('page-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 300) {
+        pageTop.classList.add('is-active');
+    } else {
+        pageTop.classList.remove('is-active');
+    }
+});
+
+
+// （おまけ）ボタンをクリックしたらスムーズに一番上へ戻る
+pageTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
