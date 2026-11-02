@@ -44,7 +44,7 @@ addBtn.addEventListener('click', () => {
 })
 const removeBtn = document.getElementById('remove-btn');
 
-removeBtn.addEventListener('click', () => {
-    steps.pop()
-    stepIndicator.textContent = `STEP ${currentIndex + 1} / ${steps.length}`;
-})
+// removeBtn.addEventListener('click', () => {
+//     steps.pop()
+//     stepIndicator.textContent = `STEP ${currentIndex + 1} / ${steps.length}`;
+// })
