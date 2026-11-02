@@ -61,6 +61,33 @@ togglePasswordBtn.addEventListener('click', () => {
 
 
 const commentInput = document.getElementById('comment-input');
+const charCount = document.getElementById('char-count');
+const warningText = document.getElementById('warning-text');
+const MAX_LENGTH = 15;
+
+postBtn.setAttribute('disabled', 'true');
+
 commentInput.addEventListener('input', () => {
-    console.log(`現在の入力文字数: ${commentInput.value.length}文字`);
+    let value = commentInput.value.length;
+    console.log(`現在の入力文字数: ${value}文字`);
+    charCount.textContent = value;
+
+    if (value === 0) {
+        postBtn.setAttribute('disabled', 'true');
+        warningText.textContent = '';
+        commentInput.classList.remove('is-error');
+        warningText.classList.remove('is-error');
+    } else if (value > MAX_LENGTH) {
+        postBtn.setAttribute('disabled', 'true');
+        warningText.textContent = '文字数オーバー';
+        commentInput.classList.add('is-error');
+        warningText.classList.add('is-error');
+    } else {
+        postBtn.removeAttribute('disabled');
+        warningText.textContent = '';
+        commentInput.classList.remove('is-error');
+        warningText.classList.remove('is-error');
+    }
 });
+// ${ commentInput.value.length } 字数
+// ${ commentInput.value. }文字
