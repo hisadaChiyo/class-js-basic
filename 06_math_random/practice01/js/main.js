@@ -26,7 +26,6 @@ const omikujiResult = document.getElementById('omikuji-result');
 const omikujiMessage = document.getElementById('omikuji-message');
 const omikujiBtn = document.getElementById('omikuji-btn');
 
-// 運勢の配列
 const fortunes = ['大吉', '中吉', '小吉', '吉', '凶'];
 
 // 各運勢に対応するメッセージの配列
