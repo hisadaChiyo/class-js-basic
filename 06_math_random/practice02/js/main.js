@@ -86,8 +86,6 @@ const presenterBtn = document.getElementById('presenter-btn');
 
 // console.log(picked[0]);
 //picked配列picked[0]で、値が取れる
-remainingCount.textContent = `残りの候補：${members.length}人`;
-
 presenterBtn.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * members.length);
     const picked = members.splice(randomIndex, 1);
