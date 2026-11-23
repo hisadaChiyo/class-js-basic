@@ -25,4 +25,30 @@ const locations = [
     'スイス / ベルナー・オーバーラント'
 ];
 
-heroHeader.style.backgroundImage = url("imageUrls.length");
+// 直前に表示したインデックスを保持する変数
+let lastIndex = -1;
+
+// 3. ページを開いた初回にもランダムに表示する
+lastIndex = Math.floor(Math.random() * imageUrls.length);
+heroHeader.style.backgroundImage = `url("${imageUrls[lastIndex]}")`;
+heroTitle.textContent = titles[lastIndex];
+heroLocation.textContent = locations[lastIndex];
+
+// 4. ボタンクリック時の切り替え処理（重複防止付き）
+changeBgBtn.addEventListener('click', () => {
+    // 新しいインデックスをランダムに抽選
+    let newIndex = Math.floor(Math.random() * imageUrls.length);
+
+    // 直前と同じ番号である間は、違う番号が出るまで再抽選
+    while (newIndex === lastIndex) {
+        newIndex = Math.floor(Math.random() * imageUrls.length);
+    }
+
+    // 画面の背景画像・テキストを更新
+    heroHeader.style.backgroundImage = `url("${imageUrls[newIndex]}")`;
+    heroTitle.textContent = titles[newIndex];
+    heroLocation.textContent = locations[newIndex];
+
+    // 今回の番号を直前の番号として記録
+    lastIndex = newIndex;
+});
